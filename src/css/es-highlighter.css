@@ -1,0 +1,102 @@
+.es-hl-bar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 58px 1rem;
+  width: 420px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10000001;
+  transform: translate3d(-100%, 0px, 0px);
+  transition: transform 0.2s ease 0s;
+  background: rgb(90,181,82);
+}
+.es-hl-bar * {
+  box-sizing: border-box;
+}
+.es-hl-bar span::after {
+  border-bottom: .313rem solid transparent;
+  border-left: .313rem solid black;
+  border-top: .313rem solid transparent;
+  content: ' ';
+  height: 0;
+  position: absolute;
+  right: 1rem;
+  top: .8625rem;
+  width: 0;
+}
+
+.es-hl-bar-open {
+  transform: translate3d(0px, 0px, 0px);
+  transition: transform 0.2s ease 0s;
+}
+.es-hl-bar-open .es-hl-bar-toggle {
+  right: 12px;
+}
+.es-hl-bar-open span::after {
+  display: none;
+}
+.es-hl-bar-open span::before {
+  border-bottom: .313rem solid transparent;
+  border-right: .313rem solid black;
+  border-top: .313rem solid transparent;
+  content: ' ';
+  height: 0;
+  position: absolute;
+  right: 1rem;
+  top: .8625rem;
+  width: 0;
+}
+
+.es-hl-bar-toggle {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 1000003;
+  top: 14px;
+  right: -35px;
+  background: rgb(221, 221, 221);
+  border-radius: 4px;
+}
+
+
+.es-hl-html-nudge {
+  margin-left: 420px;
+}
+
+
+.es-hl-button {
+  border-radius: 4px;
+  border-style: none;
+  height: 34px;
+  white-space: nowrap;
+  padding: 0 1rem;
+}
+
+.es-hl-input {
+  border-radius: 4px;
+  border: 0;
+  height: 34px;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  width: 100%;
+}
+
+.es-hl-select {
+  border-radius: 4px;
+  border-style: none;
+  height: 34px;
+  margin-right: 1rem;
+  padding: 0 1rem;
+}
+
+.es-hl-radio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 1rem;
+  color: white;
+}
