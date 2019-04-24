@@ -130,14 +130,6 @@ export function main() {
               <button id="highlight-button" class="es-hl-button" style="margin-right:1rem;">Highlight it!</button>
               <button id="clear-highlight-button" class="es-hl-button">Clear it!</button>
             </div>
-            <ul id="highlight-list" class="es-hl-list">
-              <li class="es-hl-list-item">
-                <div class="es-hl-list-item-inner">
-                  <p>AfcWebSubmittedApplicationEvent: lavendar</p>
-                  <button class="es-hl-delete">Bye!</button>
-                </div>
-              </li>
-            </ul>
           </section>
 
           <section id="dig-section">
@@ -148,20 +140,21 @@ export function main() {
 
             <button id="dig-button" class="es-hl-button" style="margin-right:1rem;">Dig it!</button>
             <button id="clear-dig-button" class="es-hl-button">Clear dig!</button>
-            <ul id="dig-list" class="es-hl-list">
-              <li class="es-hl-list-item">
-                <div class="es-hl-list-item-inner">
-                  <p>AfcWebSubmittedApplicationEvent: lavendar</p>
-                  <button class="es-hl-delete">Bye!</button>
-                </div>
-              </li>
-            </ul>
           </section>
         </div>
       `)
 
       body.append(controls)
     }
+    // list item structure
+           // <ul id="highlight-list" class="es-hl-list">
+           //   <li class="es-hl-list-item">
+           //     <div class="es-hl-list-item-inner">
+           //       <p>AfcWebSubmittedApplicationEvent: lavendar</p>
+           //       <button class="es-hl-delete">Bye!</button>
+           //     </div>
+           //   </li>
+           // </ul>
     // key/value picking for future functionality
             //<h4 style="color:white;">What I want to see:</h3>
             //<div id="radios" style="display:flex;margin-bottom:1rem;">
