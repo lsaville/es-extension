@@ -10,7 +10,9 @@ const dig = (obj, keys) => {
       const value = obj[`${key}`]
 
       if (value === undefined) {
-        return obj
+        return 'undefined'
+      } else if (value === null) {
+        return 'null'
       } else {
         return digDeeper(value, rest)
       }
