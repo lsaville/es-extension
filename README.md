@@ -21,9 +21,9 @@ data associated with an event to bring a value of interest to the surface.
 - [x] Data digging -> Persist digs
 - [x] Figure out how to detect page navigation and refresh colors/digs
 - [x] Fix event dig duplication since the thing gets called by the observer so much
+- [x] Handle accessing data in arrays
 
 #### Todo
-- [ ] Handle accessing data in arrays
 - [ ] Have a list of currently active highlights/digs and be able to clear each separately
 - [ ] Make the page navigation less terrible?
 - [ ] Take some nice screenshots for this README
