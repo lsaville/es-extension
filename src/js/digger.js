@@ -7,7 +7,13 @@ const dig = (obj, keys) => {
 
       [key, ...rest] = keys
 
-      const value = obj[`${key}`]
+      let value = obj[`${key}`]
+
+      if (Array.isArray(value)) {
+        let arrayElementKey
+        [arrayElementKey, ...rest] = rest
+        value = unshellArray(value, arrayElementKey)
+      }
 
       if (value === undefined) {
         return 'undefined'
@@ -20,6 +26,10 @@ const dig = (obj, keys) => {
   }
 
   return digDeeper(obj, keys)
+}
+
+function unshellArray(array, key) {
+  return array[parseInt(key)]
 }
 
 export { dig }
