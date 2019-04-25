@@ -1,6 +1,6 @@
 const dig = (obj, keys) => {
   function digDeeper(obj, keys) {
-    if (keys === []) {
+    if (keys.length == 0) {
       return obj
     } else {
       let key, rest;
