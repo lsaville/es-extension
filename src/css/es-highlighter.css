@@ -112,15 +112,18 @@
 }
 
 .es-hl-list-item {
-  list-style: none;
-  color: white;
-}
-
-.es-hl-list-item-inner {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid gainsboro;
+  color: white;
+  display: flex;
+  height: 48px;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.es-list-p {
+  display: inline;
+  pointer-events: none;
 }
 
 .es-hl-delete {
