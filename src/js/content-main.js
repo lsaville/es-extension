@@ -145,7 +145,7 @@ export function main() {
                 <option style="background-color:peachpuff;" value="peachpuff">Peach Puff</option>
               </select>
               <button id="highlight-button" class="es-hl-button" style="margin-right:1rem;">Highlight it!</button>
-              <button id="clear-highlight-button" class="es-hl-button">Clear it!</button>
+              <button id="clear-highlight-button" class="es-hl-button">Clear All!</button>
             </div>
             <ul id="highlight-list" class="es-hl-list">
             </ul>
