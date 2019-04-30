@@ -27,12 +27,14 @@ export function main() {
       document.querySelector('#highlight-button').addEventListener('click', function(event) {
         const eventTypeField = document.querySelector('#event-type-hl-field')
         const eventType      = eventTypeField.value
-        const color          = document.querySelector('#color-picker').value
+        const colorPicker    = document.querySelector('#color-picker')
+        const color          = colorPicker.value
         const colorOption    = document.querySelector(`option[value="${color}"`)
 
         if (eventType === '' || color === '') { return }
 
         colorOption.disabled = true
+        colorPicker.options.selectedIndex = 0
         eventTypeField.value = ''
         Storage.setColorTarget(eventType, color)
         addToHighlightList(eventType, color)
@@ -75,7 +77,11 @@ export function main() {
 
       document.getElementById('highlight-list').addEventListener('click', function(event) {
         if (event.target.type == 'submit') {
-          const type = event.target.parentElement.dataset.type
+          const type        = event.target.parentElement.dataset.type
+          const color       = event.target.parentElement.dataset.color
+          const colorOption = document.querySelector(`option[value="${color}"`)
+
+          colorOption.disabled = false
           event.target.parentElement.remove()
           decolorRowsFor(type)
           Storage.destroyColor(type)
@@ -163,7 +169,7 @@ export function main() {
     function addToHighlightList(eventType, color) {
       const colorList = document.getElementById('highlight-list')
       const listItem = document.createRange().createContextualFragment(`
-        <li class="es-hl-list-item" data-type="${eventType}">
+        <li class="es-hl-list-item" data-type="${eventType}" data-color="${color}">
           <div class="es-list-p">${eventType}: ${color}</div>
           <button class="es-hl-delete">Bye!</button>
         </li>
