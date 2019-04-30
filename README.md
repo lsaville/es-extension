@@ -22,9 +22,10 @@ data associated with an event to bring a value of interest to the surface.
 - [x] Figure out how to detect page navigation and refresh colors/digs
 - [x] Fix event dig duplication since the thing gets called by the observer so much
 - [x] Handle accessing data in arrays
+- [x] Have a list of currently active highlights and be able to clear each item separately
 
 #### Todo
-- [ ] Have a list of currently active highlights/digs and be able to clear each separately
+- [ ] Have a list of currently active digs and be able to clear each item separately
 - [ ] Handle clear when empty
 - [ ] Handle initial auth page error?
 - [ ] Make the page navigation less terrible?
