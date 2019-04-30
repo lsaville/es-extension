@@ -28,7 +28,7 @@ export function destroyColors() {
 export function destroyColor(type) {
   const colorTargets    = getColorStore()
   const colorsMinusType = colorTargets.filter(colorTarget => {
-    colorTarget.target != type
+    return colorTarget.target != type
   })
 
   if (colorsMinusType.length == 0) {
