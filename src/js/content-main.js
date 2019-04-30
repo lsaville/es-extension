@@ -79,26 +79,12 @@ export function main() {
           event.target.parentElement.remove()
           decolorRowsFor(type)
           Storage.destroyColor(type)
-          // remove type from storage
         }
       })
 
       initObserver()
 
     }, 2000)
-
-    function addToHighlightList(eventType, color) {
-      const colorList = document.getElementById('highlight-list')
-      //const listItem  = document.createElement('li', {class: 'es-hl-list-item'})
-      const listItem = document.createRange().createContextualFragment(`
-        <li class="es-hl-list-item" data-type="${eventType}">
-          <div class="es-list-p">${eventType}: ${color}</div>
-          <button class="es-hl-delete">Bye!</button>
-        </li>
-      `)
-
-      colorList.append(listItem)
-    }
 
     // ====================
     // Functions
@@ -174,11 +160,24 @@ export function main() {
       body.append(controls)
     }
 
+    function addToHighlightList(eventType, color) {
+      const colorList = document.getElementById('highlight-list')
+      const listItem = document.createRange().createContextualFragment(`
+        <li class="es-hl-list-item" data-type="${eventType}">
+          <div class="es-list-p">${eventType}: ${color}</div>
+          <button class="es-hl-delete">Bye!</button>
+        </li>
+      `)
+
+      colorList.append(listItem)
+    }
+
     function applyColorsFromStorage() {
       Storage.getColorStore().forEach(colorTarget => {
         const colorOption = document.querySelector(`option[value="${colorTarget.color}"`)
 
         colorOption.disabled = true
+        addToHighlightList(colorTarget.target, colorTarget.color)
         colorRowsFor(colorTarget.target, colorTarget.color)
       })
     }
