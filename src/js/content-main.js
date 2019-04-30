@@ -47,6 +47,7 @@ export function main() {
 
           colorOption.disabled = false
           //update color list
+          emptyColorList()
           decolorRowsFor(colorTarget.target)
         })
 
@@ -164,6 +165,12 @@ export function main() {
       `)
 
       body.append(controls)
+    }
+
+    function emptyColorList() {
+      const colorList = document.getElementById('highlight-list')
+
+      colorList.innerHTML = ''
     }
 
     function addToHighlightList(eventType, color) {
