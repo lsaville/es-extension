@@ -27,12 +27,15 @@ export function destroyColors() {
 
 export function destroyColor(type) {
   const colorTargets    = getColorStore()
-  const colorsMinusType = colorTargets.map(colorTarget => {
+  const colorsMinusType = colorTargets.filter(colorTarget => {
     colorTarget.target != type
   })
 
-  localStorage.setItem(colorStore = JSON.stringify(colorsMinusType))
-  //destroy single color
+  if (colorsMinusType.length == 0) {
+    localStorage.removeItem(colorStore)
+  } else {
+    localStorage.setItem(colorStore, JSON.stringify(colorsMinusType))
+  }
 }
 
 export function setDigTarget(target, dig) {
