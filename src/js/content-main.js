@@ -35,7 +35,6 @@ export function main() {
         colorOption.disabled = true
         eventTypeField.value = ''
         Storage.setColorTarget(eventType, color)
-        //update color list
         addToHighlightList(eventType, color)
         colorRowsFor(eventType, color)
       })
