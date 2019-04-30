@@ -25,13 +25,15 @@ export function main() {
       })
 
       document.querySelector('#highlight-button').addEventListener('click', function(event) {
-        const eventType   = document.querySelector('#event-type-hl-field').value
-        const color       = document.querySelector('#color-picker').value
-        const colorOption = document.querySelector(`option[value="${color}"`)
+        const eventTypeField = document.querySelector('#event-type-hl-field')
+        const eventType      = eventTypeField.value
+        const color          = document.querySelector('#color-picker').value
+        const colorOption    = document.querySelector(`option[value="${color}"`)
 
         if (eventType === '' || color === '') { return }
 
         colorOption.disabled = true
+        eventTypeField.value = ''
         Storage.setColorTarget(eventType, color)
         //update color list
         addToHighlightList(eventType, color)
@@ -76,7 +78,8 @@ export function main() {
         if (event.target.type == 'submit') {
           const type = event.target.parentElement.dataset.type
           event.target.parentElement.remove()
-          //Storage.removeColorTarget(type)
+          decolorRowsFor(type)
+          Storage.destroyColor(type)
           // remove type from storage
         }
       })
