@@ -25,6 +25,8 @@ data associated with an event to bring a value of interest to the surface.
 
 #### Todo
 - [ ] Have a list of currently active highlights/digs and be able to clear each separately
+- [ ] Handle clear when empty
+- [ ] Handle initial auth page error?
 - [ ] Make the page navigation less terrible?
 - [ ] Take some nice screenshots for this README
 - [ ] Data digging -> If digging again data bits are additive, fix this
