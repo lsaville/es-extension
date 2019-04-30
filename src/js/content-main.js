@@ -46,7 +46,6 @@ export function main() {
           const colorOption = document.querySelector(`option[value="${colorTarget.color}"`)
 
           colorOption.disabled = false
-          //update color list
           emptyColorList()
           decolorRowsFor(colorTarget.target)
         })
