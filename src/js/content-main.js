@@ -173,6 +173,7 @@ export function main() {
     }
 
     function addToHighlightList(eventType, color) {
+      // need to look whats in the list to no duplicate
       const colorList = document.getElementById('highlight-list')
       const listItem = document.createRange().createContextualFragment(`
         <li class="es-hl-list-item" data-type="${eventType}" data-color="${color}">
