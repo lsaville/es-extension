@@ -32,6 +32,7 @@
 .es-hl-bar-open {
   transform: translate3d(0px, 0px, 0px);
   transition: transform 0.2s ease 0s;
+  overflow-y: auto;
 }
 .es-hl-bar-open .es-hl-bar-toggle {
   right: 12px;
