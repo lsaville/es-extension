@@ -13,7 +13,7 @@ export function main() {
       createAndAttachControls()
 
       if (Storage.getColorStore()) { applyColorsFromStorage({ populateList: true }) }
-      if (Storage.getDigStore()) { applyDigsFromStorage() }
+      if (Storage.getDigStore()) { applyDigsFromStorage({ populateList: true }) }
 
       // ====================
       // Listeners
@@ -62,13 +62,13 @@ export function main() {
         const splitKeys  = keys.split(/,\s?/)
 
         Storage.setDigTarget(eventType, splitKeys)
-        //update dig list
+        addToDigList(eventType, splitKeys)
         labelRowsFor(eventType, splitKeys)
       })
 
       document.querySelector('#clear-dig-button').addEventListener('click', function(event) {
         Storage.getDigStore().forEach(digTarget => {
-          //update dig list
+          emptyDigList()
           delabelRowsFor(digTarget.target)
         })
 
@@ -85,6 +85,16 @@ export function main() {
           event.target.parentElement.remove()
           decolorRowsFor(type)
           Storage.destroyColor(type)
+        }
+      })
+
+      document.getElementById('dig-list').addEventListener('click', function(event) {
+        if (event.target.type == 'submit') {
+          const type = event.target.parentElement.dataset.type
+
+          event.target.parentElement.remove()
+          delabelRowsFor(type)
+          Storage.destroyDig(type)
         }
       })
 
@@ -118,7 +128,7 @@ export function main() {
         button.addEventListener('click', function() {
           setTimeout(() => {
             if (Storage.getColorStore()) { applyColorsFromStorage({ populateList: false }) }
-            if (Storage.getDigStore()) { applyDigsFromStorage() }
+            if (Storage.getDigStore()) { applyDigsFromStorage({ populateList: false }) }
           }, 500)
         })
       })
@@ -159,6 +169,8 @@ export function main() {
 
             <button id="dig-button" class="es-hl-button" style="margin-right:1rem;">Dig it!</button>
             <button id="clear-dig-button" class="es-hl-button">Clear dig!</button>
+            <ul id="dig-list" class="es-hl-list">
+            </ul>
           </section>
         </div>
       `)
@@ -172,8 +184,13 @@ export function main() {
       colorList.innerHTML = ''
     }
 
+    function emptyDigList() {
+      const colorList = document.getElementById('dig-list')
+
+      colorList.innerHTML = ''
+    }
+
     function addToHighlightList(eventType, color) {
-      // need to look whats in the list to no duplicate
       const colorList = document.getElementById('highlight-list')
       const listItem = document.createRange().createContextualFragment(`
         <li class="es-hl-list-item" data-type="${eventType}" data-color="${color}">
@@ -183,6 +200,18 @@ export function main() {
       `)
 
       colorList.append(listItem)
+    }
+
+    function addToDigList(eventType, splitKeys) {
+      const digList = document.getElementById('dig-list')
+      const listItem = document.createRange().createContextualFragment(`
+        <li class="es-hl-list-item" data-type="${eventType}" data-splitKeys="${splitKeys}">
+          <div class="es-list-p">${eventType}: ${splitKeys}</div>
+          <button class="es-hl-delete">Bye!</button>
+        </li>
+      `)
+
+      digList.append(listItem)
     }
 
     function applyColorsFromStorage({ populateList }) {
@@ -198,8 +227,12 @@ export function main() {
       })
     }
 
-    function applyDigsFromStorage() {
+    function applyDigsFromStorage({ populateList }) {
       Storage.getDigStore().forEach(digTarget => {
+        if (populateList === true) {
+          addToDigList(digTarget.target, digTarget.dig)
+        }
+
         labelRowsFor(digTarget.target, digTarget.dig)
       })
     }
