@@ -24,9 +24,9 @@ data associated with an event to bring a value of interest to the surface.
 - [x] Handle accessing data in arrays
 - [x] Have a list of currently active highlights and be able to clear each item separately
 - [x] Fix bug where list items get duplicated on "next"/"prev"
+- [x] Have a list of currently active digs and be able to clear each item separately
 
 #### Todo
-- [ ] Have a list of currently active digs and be able to clear each item separately
 - [ ] Handle clear when empty
 - [ ] Handle initial auth page error?
 - [ ] Make the page navigation less terrible?
