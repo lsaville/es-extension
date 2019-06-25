@@ -60,3 +60,16 @@ export function destroyDigs() {
     localStorage.removeItem(digStore)
   }
 }
+
+export function destroyDig(type) {
+  const digTargets    = getDigStore()
+  const digMinusType = digTargets.filter(digTarget => {
+    return digTarget.target != type
+  })
+
+  if (digMinusType.length == 0) {
+    localStorage.removeItem(digStore)
+  } else {
+    localStorage.setItem(digStore, JSON.stringify(digMinusType))
+  }
+}
