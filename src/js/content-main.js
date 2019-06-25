@@ -12,7 +12,7 @@ export function main() {
     setTimeout(function() {
       createAndAttachControls()
 
-      if (Storage.getColorStore()) { applyColorsFromStorage() }
+      if (Storage.getColorStore()) { applyColorsFromStorage({ populateList: true }) }
       if (Storage.getDigStore()) { applyDigsFromStorage() }
 
       // ====================
@@ -117,7 +117,7 @@ export function main() {
       nativeNavButtons.forEach(button => {
         button.addEventListener('click', function() {
           setTimeout(() => {
-            if (Storage.getColorStore()) { applyColorsFromStorage() }
+            if (Storage.getColorStore()) { applyColorsFromStorage({ populateList: false }) }
             if (Storage.getDigStore()) { applyDigsFromStorage() }
           }, 500)
         })
@@ -185,12 +185,15 @@ export function main() {
       colorList.append(listItem)
     }
 
-    function applyColorsFromStorage() {
+    function applyColorsFromStorage({ populateList }) {
       Storage.getColorStore().forEach(colorTarget => {
         const colorOption = document.querySelector(`option[value="${colorTarget.color}"`)
 
         colorOption.disabled = true
-        addToHighlightList(colorTarget.target, colorTarget.color)
+
+        if (populateList === true) {
+          addToHighlightList(colorTarget.target, colorTarget.color)
+        }
         colorRowsFor(colorTarget.target, colorTarget.color)
       })
     }
