@@ -3,6 +3,8 @@
 This extension is meant to be used with the stream viewing interface of [Event
 Store](https://eventstore.org/)
 
+![gif of eventstore highlighter in action](https://raw.githubusercontent.com/lsaville/readme-screenshots/master/es-extension/peek0QM73Z.gif)
+
 ### Whatzit?
 
 The EventStore Highlighter provides two bits of functionality:
