@@ -29,6 +29,7 @@ data associated with an event to bring a value of interest to the surface.
 - [x] Have a list of currently active digs and be able to clear each item separately
 
 #### Todo
+- [ ] Fix partial copy paste mistake i.e 'learly I should have a C' / 'Clearly I should have a C'
 - [ ] Add additional info to README (re: data digging w/arrays, more complicated json)
 - [ ] Handle clear when empty
 - [ ] Handle initial auth page error?
